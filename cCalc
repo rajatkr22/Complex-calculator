@@ -1,0 +1,71 @@
+package calc;
+import java.util.Scanner;
+public class Main {
+
+	public static void main(String[] args) {
+
+	/*	String s1 = getInput("Enter first numeric value: ");
+		String s2 = getInput("Enter second numeric value: ");
+		String op = getInput("Choose an operation (+ - * /): ");   */
+		Scanner scn = new Scanner(System.in);
+		
+		System.out.println("Enter first numeric value: ");	
+		String s1 = scn.nextLine();
+		System.out.println("Enter second numeric value: ");
+		String s2 = scn.nextLine();	
+		System.out.println("Choose an operation (+ - * /): ");
+		String op = scn.nextLine();
+				double res = 0;
+		
+		try {
+			switch(op) {
+			case "+":
+				res = add(s1, s2);
+				break;
+			case "-":
+				res = sub(s1, s2);
+				break;
+			case "*":
+				res = mul(s1, s2);
+				break;
+			case "/":
+				res = div(s1, s2);
+				break;
+			default:
+				System.out.println("Unexpected Operation");
+				return;
+			}
+			System.out.println("The answer is: "+ res);
+		} 
+		catch (Exception e) {
+			System.out.println("Number formatting eception"+ e.getMessage());
+		}
+	}
+
+
+
+	private static double add(String s1, String s2) {
+		double d1 = Double.parseDouble(s1);
+		double d2 = Double.parseDouble(s2);
+		return d1 + d2;
+		
+	}
+	private static double sub(String s1, String s2) {
+		double d1 = Double.parseDouble(s1);
+		double d2 = Double.parseDouble(s2);
+		return d1 - d2;
+		
+	}
+	private static double mul(String s1, String s2) {
+		double d1 = Double.parseDouble(s1);
+		double d2 = Double.parseDouble(s2);
+		return d1 * d2;
+		
+	}	
+	private static double div(String s1, String s2) {
+		double d1 = Double.parseDouble(s1);
+		double d2 = Double.parseDouble(s2);
+		return d1 / d2;
+		
+	}
+}
